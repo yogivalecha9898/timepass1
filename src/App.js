@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react"
+import Main from "./components/main"
+import { useSelector, useDispatch } from "react-redux"
+import { getUsers } from "./actions/fetch"
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
+import SignIn from "./components/signIn"
 
 function App() {
+
+  const array = useSelector(state => state.users)
+  const dispatch = useDispatch()
+
+    useEffect(() => {
+        const fun = async () => {
+            const fet = await fetch("./data.json")
+            const data = await fet.json()
+            dispatch(getUsers(data))
+        }
+        fun()
+    }, [])
+
+    // useEffect(() => {
+    //   console.log(array)
+    // }, [array])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" exact element={ 
+          <div>
+            <Link to="/user">Sign In</Link>
+            <Main />
+          </div>
+        }/>
+        <Route path="/user" element={ <SignIn /> }/>
+      </Routes>
+    </Router>
+  )
 }
 
-export default App;
+export default App

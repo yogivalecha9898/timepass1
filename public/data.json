@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "name": "Yogi",
+        "password": "1234",
+        "email": "y@y.com",
+        "posts": [
+            {
+                "id": "post_11",
+                "title": "Dancing",
+                "discription": "Dancing is an art",
+                "Likes": 4,
+                "Dislikes": 1
+            },
+            {
+                "id": "post_12",
+                "title": "Studying",
+                "discription": "Studying is also an art!",
+                "Likes": 10,
+                "Dislikes": 5
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Shreedutt",
+        "password": "1234",
+        "email": "s@s.com",
+        "posts": [
+            {
+                "id": "post_21",
+                "title": "Grudge",
+                "discription": "Life is too small to have grudges against any one, so live out.",
+                "Likes": 0,
+                "Dislikes": 1
+            }
+        ]
+    }
+]
